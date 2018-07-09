@@ -1,0 +1,21 @@
+/**
+@page funcdef Function Definition
+
+@section funcdef_contents TABLE OF CONTENTS
+-# @ref funcdef_sphere
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section funcdef_sphere Sphere Function
+
+\f[
+    f(\textbf{x})=\sum_{i=1}^{D} (x_i - o_i)^2 + b
+
+\f]
+
+where \f$D \in \mathbb{N}\f$ is dimension, \f$\textbf{x}=(x_1,x_2,...,x_D)\f$
+is a candidate solution, \f$\textbf{o}=(o_1,o_2,...,o_D)\f$ is a global
+optimum, and \f$b\f$ is a bias to function values.
+*/

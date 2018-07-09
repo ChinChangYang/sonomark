@@ -1,0 +1,82 @@
+/**
+@page perfind Performance Index
+
+@section perfind_contents TABLE OF CONTENTS
+-# @ref solerr
+-# @ref succind
+-# @ref succrate
+-# @ref score
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section solerr Solution Error
+
+\f[
+    e_{ijk}(A;f_i;n_j) = f_{i}({\textbf{x}_{ij}}^*) - f_i(\textbf{o}_i)
+\f]
+
+where \f$A\f$ is an algorithm to return a best minimizer
+\f${\textbf{x}_{ij}}^*\f$ of the test function \f$f_i\f$ with \f$n_j\f$
+function evaluations in the \f$k\f$-th run, and \f$\textbf{o}_i\f$ is a global
+optimizer of the test function.
+
+The solution error \f$e_{ijk}(A;f_i;n_j)\f$ maps to a nonnegative value because
+\f$f_{i}({\textbf{x}_{ij}}^*) \geq f_i(\textbf{o}_i)\f$.
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section succind Success Indicator
+
+\f[
+    s_{ijk}(e_{ijk}(A;f_i;n_j)) =
+        \begin{cases}
+            1,& \text{if } e_{ijk}(A;f_i;n_j) \leq T_{ij}\\
+            0,& \text{otherwise}
+        \end{cases}
+\f]
+
+where \f$T_{ij} >= 0\f$ is a threshold to indicate the solution error
+\f$e_{ijk}(A;f_i;n_j)\f$ is small enough to call the \f$k\f$-th run is a
+successful run.
+
+If the algorithm \f$A\f$ makes a successful run, \f$s_{ijk} = 1\f$;
+otherwise, \f$s_{ijk} = 0\f$.
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section succrate Success Rate
+
+\f[
+    SR_{ij}(A;f_i;n_j) = \sum_{k=1}^{K} s_{ijk}(e_{ijk}(A;f_i;n_j))
+\f]
+
+where \f$s_{ijk}(e_{ijk}(A;f_i;n_j))\f$ is a success indicator, and \f$K\f$ is
+the amount of runs for the algorithm \f$A\f$ on the test function \f$f_i\f$ with
+\f$n_j\f$ function evaluations.
+
+The success rate \f$ 0 \leq SR_{ij}(A;f_i;n_j) \leq 1\f$.
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section score Score
+
+\f[
+    S(A) = \sum_{i=1}^{I} \sum_{j=1}^{J} SR_{ij}(A;f_i;n_j)
+\f]
+
+where \f$SR_{ij}(A;f_i;n_j)\f$ is a success rate, \f$I\f$ is the amount of test
+functions, and \f$J\f$ is the amount of different function evaluations.
+
+The score \f$ 0 \leq S(A) \leq IJ\f$.
+
+The test functions \f$f_i\f$ and function evaluations \f$n_j\f$ should maximize
+the difference of scores between known algorithms \f$A_1, A_2, ..., A_n\f$.
+*/
