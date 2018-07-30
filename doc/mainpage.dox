@@ -1,0 +1,10 @@
+/*!
+
+@mainpage Documentation
+
+Single-Objective Numerical Optimization Benchmark (sonomark) includes a set of functions that map real numbers to a real value. These functions are intended to evaluate the performance of optimization algorithms in minimization.
+
+- @subpage perfind
+- @subpage funcdef
+
+*/
