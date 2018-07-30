@@ -1,6 +1,7 @@
 language: c
 
 before_script:
+  - sudo apt-get install -y doxygen
   - mkdir build
   - cd build
   - cmake ..
