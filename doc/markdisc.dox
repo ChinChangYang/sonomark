@@ -1,0 +1,65 @@
+/**
+@page markdisc Benchmark Discrimination
+
+@section markdisc_contents TABLE OF CONTENTS
+-# @ref minscore
+-# @ref maxscore
+-# @ref diffsum
+-# @ref criterion
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section minscore Minimal Score
+
+\f[
+    L = \min_{i=1}^{K} S(A_i)
+\f]
+
+where \f$S(A_i)\f$ is the score of the \f$i\f$-th known algorithm, and \f$K\f$
+is the amount of known algorithms.
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section maxscore Maximal Score
+\f[
+    R = \max_{i=1}^{K} S(A_i)
+\f]
+
+where \f$S(A_i)\f$ is the score of the \f$i\f$-th known algorithm, and \f$K\f$
+is the amount of known algorithms.
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section diffsum Sum of Score Difference
+
+\f[
+    D = \sum_{i=1}^{K} \sum_{j=1}^{K} (S(A_i) - S(A_j))^2
+\f]
+
+where \f$S(A_i)\f$ is the score of the \f$i\f$-th known algorithm, and \f$K\f$
+is the amount of known algorithms.
+
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section criterion Discrimination Criterion
+
+\f[
+    C = D + w_1(L - R) - w_2(T - L - R)^2
+\f]
+
+where \f$w_1 \geq 0\f$ is the weight of individual minimal score and individual
+maximal score on known algorithms, \f$w_2 \geq 0\f$ is the weight of the balance
+between minimal score and maximal score on known algorithms, and \f$T\f$ is
+the maximum score defined in the benchmark.
+
+See @ref score for the score definition.
+
+*/

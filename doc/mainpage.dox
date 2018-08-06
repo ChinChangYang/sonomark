@@ -6,5 +6,6 @@ Single-Objective Numerical Optimization Benchmark (sonomark) includes a set of f
 
 - @subpage perfind
 - @subpage funcdef
+- @subpage markdisc
 
 */
