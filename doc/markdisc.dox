@@ -6,6 +6,7 @@
 -# @ref maxscore
 -# @ref diffsum
 -# @ref criterion
+-# @ref design
 
 @htmlonly
 <hr>
@@ -14,11 +15,11 @@
 @section minscore Minimal Score
 
 \f[
-    L = \min_{i=1}^{K} S(A_i)
+    L(\textbf{A}, F, T) = \min_{i=1}^{K} S(A_i, F, T)
 \f]
 
-where \f$S(A_i)\f$ is the score of the \f$i\f$-th known algorithm, and \f$K\f$
-is the amount of known algorithms.
+where \f$\textbf{A} = (A_1, A_2, ..., A_K)\f$ is a set of algorithms, and
+\f$S(A_i, F, T)\f$ is the score of the \f$i\f$-th algorithm.
 
 @htmlonly
 <hr>
@@ -26,11 +27,11 @@ is the amount of known algorithms.
 
 @section maxscore Maximal Score
 \f[
-    R = \max_{i=1}^{K} S(A_i)
+    R(\textbf{A}, F, T) = \max_{i=1}^{K} S(A_i, F, T)
 \f]
 
-where \f$S(A_i)\f$ is the score of the \f$i\f$-th known algorithm, and \f$K\f$
-is the amount of known algorithms.
+where \f$\textbf{A} = (A_1, A_2, ..., A_K)\f$ is a set of algorithms, and
+\f$S(A_i, F, T)\f$ is the score of the \f$i\f$-th algorithm.
 
 @htmlonly
 <hr>
@@ -39,11 +40,11 @@ is the amount of known algorithms.
 @section diffsum Sum of Score Difference
 
 \f[
-    D = \sum_{i=1}^{K} \sum_{j=1}^{K} (S(A_i) - S(A_j))^2
+    D(\textbf{A}, F, T) = \sum_{i=1}^{K} \sum_{j=1}^{K} (S(A_i, F, T) - S(A_j, F, T))^2
 \f]
 
-where \f$S(A_i)\f$ is the score of the \f$i\f$-th known algorithm, and \f$K\f$
-is the amount of known algorithms.
+where \f$\textbf{A} = (A_1, A_2, ..., A_K)\f$ is a set of algorithms, and
+\f$S(A_i, F, T)\f$ is the score of the \f$i\f$-th algorithm.
 
 @htmlonly
 <hr>
@@ -52,14 +53,28 @@ is the amount of known algorithms.
 @section criterion Discrimination Criterion
 
 \f[
-    C = D + w_1(L - R) - w_2(T - L - R)^2
+    C(\textbf{A}, F, T) = D(\textbf{A}, F, T) + w_1(L(\textbf{A}, F, T) -
+                          R(\textbf{A}, F, T)) - w_2(M - L(\textbf{A}, F, T) -
+                          R(\textbf{A}, F, T))^2
 \f]
 
 where \f$w_1 \geq 0\f$ is the weight of individual minimal score and individual
 maximal score on known algorithms, \f$w_2 \geq 0\f$ is the weight of the balance
-between minimal score and maximal score on known algorithms, and \f$T\f$ is
-the maximum score defined in the benchmark.
+between minimal score and maximal score on known algorithms, and \f$M\f$ is
+the maximum @ref score defined in the benchmark.
 
-See @ref score for the score definition.
+@htmlonly
+<hr>
+@endhtmlonly
+
+@section design Benchmark Design
+
+\f[
+    (\textbf{A}^*, F^*, T^*) = \text{arg}\max_{\textbf{A}, F, T} C(\textbf{A}, F, T)
+\f]
+
+where \f$C(\textbf{A}, F, T)\f$ is the discrimination criterion.
+
+The benchmark design aims to find the maximizer of the discrimination criterion.
 
 */

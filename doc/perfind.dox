@@ -34,12 +34,12 @@ The solution error \f$e_{ijk}(A;f_i;t_j) \geq 0\f$ because
 \f[
     s_{ijk}(e_{ijk}(A;f_i;t_j)) =
         \begin{cases}
-            1,& \text{if } e_{ijk}(A;f_i;t_j) \leq T_{ij}\\
+            1,& \text{if } e_{ijk}(A;f_i;t_j) \leq U_{ij}\\
             0,& \text{otherwise}
         \end{cases}
 \f]
 
-where \f$T_{ij} \geq 0\f$ is a threshold to indicate the solution error
+where \f$U_{ij} \geq 0\f$ is a threshold to indicate the solution error
 \f$e_{ijk}(A;f_i;t_j)\f$ is small enough to say the \f$k\f$-th run is a
 successful run.
 
@@ -69,11 +69,12 @@ The success rate is between \f$ 0 \leq SR_{ij}(A;f_i;t_j) \leq 1\f$.
 @section score Score
 
 \f[
-    S(A) = \sum_{i=1}^{I} \sum_{j=1}^{J} SR_{ij}(A;f_i;t_j)
+    S(A,F,T) = \sum_{i=1}^{I} \sum_{j=1}^{J} SR_{ij}(A;f_i;t_j)
 \f]
 
-where \f$SR_{ij}(A;f_i;t_j)\f$ is a success rate, \f$I\f$ is the amount of test
-functions, and \f$J\f$ is the amount of different running time in seconds.
+where \f$F = (f_1, f_2, ..., f_I)\f$ is a set of test functions,
+\f$T = (t_1, t_2, ..., t_J)\f$ is a set of running time in seconds, and
+\f$SR_{ij}(A;f_i;t_j)\f$ is a success rate.
 
 The score is between \f$ 0 \leq S(A) \leq IJ\f$.
 
